@@ -58,18 +58,19 @@ namespace ekzamen2023sesia.PagesProgram
                 var reqDel = lView.SelectedItems.Cast<Request>().ToList();
                 foreach (var stat in reqDel)
                 {
-                    if (stat.IdStatus != 1)
+                    if (stat.IdStatus == 3)
                     {
-                        AppEntities.GetContext().Request.RemoveRange(reqDel);
-                        AppEntities.GetContext().SaveChanges();
-                        MessageBox.Show("uspexDel");
+                        AppEntities.GetContext().Request.Remove(stat);
+                        
+                       
                     }
                     else
                     {
                         MessageBox.Show("ne uspex");
                     }
                 }
-               
+                MessageBox.Show("uspexDel");
+                AppEntities.GetContext().SaveChanges();
                 lView.ItemsSource = AppEntities.GetContext().Request.ToList(); 
             }
             catch (Exception ex)
