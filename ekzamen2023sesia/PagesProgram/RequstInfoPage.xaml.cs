@@ -49,20 +49,18 @@ namespace ekzamen2023sesia.PagesProgram
 
         private void DelitReq_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("del?", "DDELTE", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+            var reqDel = lView.SelectedItems.Cast<Request>().ToList();
+            if (MessageBox.Show($"del? {reqDel.Count()}", "DDELTE", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
             {
                 return;
             }
             try
             {
-                var reqDel = lView.SelectedItems.Cast<Request>().ToList();
                 foreach (var stat in reqDel)
                 {
                     if (stat.IdStatus == 3)
                     {
-                        AppEntities.GetContext().Request.Remove(stat);
-                        
-                       
+                        AppEntities.GetContext().Request.Remove(stat); 
                     }
                     else
                     {
@@ -76,8 +74,7 @@ namespace ekzamen2023sesia.PagesProgram
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-            }    
-            
+            }     
         }
         private void UpdateReq()
         {
@@ -99,7 +96,8 @@ namespace ekzamen2023sesia.PagesProgram
                 case 1:
                     curReq = curReq.OrderByDescending(date => date.StartDate).ToList();
                     break;
-                
+                default:
+                    break;
             }
             
             lView.ItemsSource = curReq;

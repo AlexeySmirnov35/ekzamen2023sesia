@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ekzamen2023sesia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="1000" MinWidth="800" MinHeight="800" WindowStyle="ThreeDBorderWindow">
+        Title="Прога сесси" Height="800" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="1000" MinWidth="800" MinHeight="800" WindowStyle="ThreeDBorderWindow" Icon="/2842162123.png">
     <Grid>
-        <Frame x:Name="FrmMain" Content="Frame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="FrmMain" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
