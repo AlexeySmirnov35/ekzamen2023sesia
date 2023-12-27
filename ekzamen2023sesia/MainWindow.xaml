@@ -1,0 +1,13 @@
+﻿<Window x:Class="ekzamen2023sesia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ekzamen2023sesia"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="1000" MinWidth="800" MinHeight="800" WindowStyle="ThreeDBorderWindow">
+    <Grid>
+        <Frame x:Name="FrmMain" Content="Frame" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>

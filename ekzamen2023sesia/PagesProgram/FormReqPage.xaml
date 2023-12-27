@@ -1,0 +1,17 @@
+﻿<Page x:Class="ekzamen2023sesia.PagesProgram.FormReqPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ekzamen2023sesia.PagesProgram"
+      mc:Ignorable="d" 
+      Height="800" Width="800"
+      Title="FormReqPage">
+
+    <Grid Background="White">
+        <TextBox x:Name="tbDesc" HorizontalAlignment="Left" Margin="28,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130" Height="126"/>
+        <Button Content="Button" Click="SaveRequest_Click" HorizontalAlignment="Left" Margin="195,237,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbStatus" SelectedItem="{Binding Status}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="211,109,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Page>
