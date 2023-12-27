@@ -49,21 +49,34 @@ namespace ekzamen2023sesia.PagesProgram
 
         private void DelitReq_Click(object sender, RoutedEventArgs e)
         {
-            var reqDel = lView.SelectedItems.Cast<Request>().ToList();
-            if (MessageBox.Show("del?", "DDELTE", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("del?", "DDELTE", MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
             {
-                try
-                {
-                    AppEntities.GetContext().Request.RemoveRange(reqDel);
-                    AppEntities.GetContext().SaveChanges();
-                    MessageBox.Show("uspexDel");
-                    lView.ItemsSource = AppEntities.GetContext().Request.ToList();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                return;
             }
+            try
+            {
+                var reqDel = lView.SelectedItems.Cast<Request>().ToList();
+                foreach (var stat in reqDel)
+                {
+                    if (stat.IdStatus != 1)
+                    {
+                        AppEntities.GetContext().Request.RemoveRange(reqDel);
+                        AppEntities.GetContext().SaveChanges();
+                        MessageBox.Show("uspexDel");
+                    }
+                    else
+                    {
+                        MessageBox.Show("ne uspex");
+                    }
+                }
+               
+                lView.ItemsSource = AppEntities.GetContext().Request.ToList(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }    
+            
         }
         private void UpdateReq()
         {
